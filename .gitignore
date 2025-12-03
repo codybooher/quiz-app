@@ -20,7 +20,7 @@ Thumbs.db
 .vscode
 .cursor
 .npmrc
-AGENTS.md
+*.md
 
 # Vite
 vite.config.js.timestamp-*

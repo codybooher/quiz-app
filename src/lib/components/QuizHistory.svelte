@@ -14,15 +14,13 @@
 	let { history, selectedId, onLoadQuiz, onDeleteEntry, onClearAll, onClose }: Props = $props();
 </script>
 
-<div class="fixed right-0 top-0 h-screen w-80 border-l-2 border-gray-200 bg-white shadow-lg overflow-y-auto">
+<div
+	class="fixed right-0 top-0 h-screen w-80 border-l-2 border-gray-200 bg-white shadow-lg overflow-y-auto"
+>
 	<div class="sticky top-0 border-b-2 border-gray-200 bg-white p-4">
 		<div class="flex items-center justify-between">
 			<h2 class="text-xl font-bold text-gray-800">Quiz History</h2>
-			<button
-				onclick={onClose}
-				class="rounded-md p-1 hover:bg-gray-100"
-				aria-label="Close history"
-			>
+			<button onclick={onClose} class="rounded-md p-1 hover:bg-gray-100" aria-label="Close history">
 				<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path
 						stroke-linecap="round"
@@ -64,7 +62,8 @@
 								onLoadQuiz(entry);
 							}
 						}}
-						class="cursor-pointer rounded-lg border-2 p-4 transition-all hover:shadow-md {selectedId === entry.id
+						class="cursor-pointer rounded-lg border-2 p-4 transition-all hover:shadow-md {selectedId ===
+						entry.id
 							? 'border-blue-500 bg-blue-50'
 							: 'border-gray-200 bg-gray-50 hover:border-gray-300'}"
 					>
@@ -87,7 +86,8 @@
 							</button>
 						</div>
 						<div
-							class="mb-2 inline-block rounded-full px-2 py-1 text-sm font-semibold {scoreColor === 'green'
+							class="mb-2 inline-block rounded-full px-2 py-1 text-sm font-semibold {scoreColor ===
+							'green'
 								? 'bg-green-100 text-green-700'
 								: scoreColor === 'yellow'
 									? 'bg-yellow-100 text-yellow-700'
@@ -102,4 +102,3 @@
 		{/if}
 	</div>
 </div>
-

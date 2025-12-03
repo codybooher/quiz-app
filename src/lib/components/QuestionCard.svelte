@@ -55,7 +55,9 @@
 						? 'border-red-500 bg-red-50'
 						: isSelected
 							? 'border-blue-500 bg-blue-50'
-							: 'border-gray-200 bg-gray-50 hover:border-gray-300'} {isDisabled ? 'cursor-default' : 'cursor-pointer'}"
+							: 'border-gray-200 bg-gray-50 hover:border-gray-300'} {isDisabled
+					? 'cursor-default'
+					: 'cursor-pointer'}"
 			>
 				<div class="flex items-center gap-3">
 					<input
@@ -90,7 +92,7 @@
 		<div class="rounded-md border-l-4 border-blue-500 bg-blue-50 p-4">
 			<h3 class="mb-2 font-semibold text-blue-900">Explanation:</h3>
 			<p class="text-blue-800">{question.explanation}</p>
-			
+
 			{#if question.sources && question.sources.length > 0}
 				<div class="mt-3 border-t border-blue-200 pt-3">
 					<h4 class="mb-2 text-sm font-semibold text-blue-900">Sources:</h4>
@@ -113,4 +115,3 @@
 		</div>
 	{/if}
 </div>
-

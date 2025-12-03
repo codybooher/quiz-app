@@ -246,7 +246,11 @@
 
 			<!-- Score Display (shown after submission) -->
 			{#if isSubmitted}
-				<ScoreDisplay score={score} totalQuestions={questions.length} isHistoryView={selectedHistoryId !== null} />
+				<ScoreDisplay
+					{score}
+					totalQuestions={questions.length}
+					isHistoryView={selectedHistoryId !== null}
+				/>
 			{/if}
 
 			<!-- Topic Input -->
@@ -254,19 +258,27 @@
 				<label for="topic" class="mb-2 block font-semibold text-gray-700">
 					Enter a topic for your quiz:
 				</label>
-			<input
-				id="topic"
-				type="text"
-				bind:value={topic}
-				disabled={isLoading || (questions.length > 0 && !isSubmitted) || selectedHistoryId !== null}
-				placeholder="e.g., photosynthesis, World War II, JavaScript promises..."
-				class="w-full rounded-md border-2 border-gray-300 p-3 focus:border-blue-500 focus:outline-none disabled:cursor-not-allowed disabled:bg-gray-100"
-				onkeydown={(e) => {
-					if (e.key === 'Enter' && !isLoading && topic.trim() && questions.length === 0 && !selectedHistoryId) {
-						generateQuiz();
-					}
-				}}
-			/>
+				<input
+					id="topic"
+					type="text"
+					bind:value={topic}
+					disabled={isLoading ||
+						(questions.length > 0 && !isSubmitted) ||
+						selectedHistoryId !== null}
+					placeholder="e.g., photosynthesis, World War II, JavaScript promises..."
+					class="w-full rounded-md border-2 border-gray-300 p-3 focus:border-blue-500 focus:outline-none disabled:cursor-not-allowed disabled:bg-gray-100"
+					onkeydown={(e) => {
+						if (
+							e.key === 'Enter' &&
+							!isLoading &&
+							topic.trim() &&
+							questions.length === 0 &&
+							!selectedHistoryId
+						) {
+							generateQuiz();
+						}
+					}}
+				/>
 			</div>
 
 			<!-- Error Display -->
