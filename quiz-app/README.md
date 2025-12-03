@@ -22,53 +22,6 @@ Get your API key from [Google AI Studio](https://ai.google.dev/gemini-api/docs/q
 
 This project includes utilities for integrating with Google's Gemini AI API. The utilities are located in `src/lib/gemini.ts`.
 
-### Available Functions
-
-#### `generateContent(prompt, model?)`
-
-Generate content from a text prompt using Gemini AI.
-
-```typescript
-import { generateContent } from '$lib';
-
-const response = await generateContent('Explain how AI works in a few words');
-console.log(response);
-```
-
-#### `generateContentStream(prompt, onChunk, model?)`
-
-Generate content with streaming response for real-time text generation.
-
-```typescript
-import { generateContentStream } from '$lib';
-
-await generateContentStream(
-	'Tell me a story',
-	(chunk) => {
-		console.log(chunk); // Handle each chunk as it arrives
-	},
-	'gemini-2.5-flash'
-);
-```
-
-#### `generateContentWithOptions(prompt, options?)`
-
-Generate content with custom configuration options.
-
-```typescript
-import { generateContentWithOptions } from '$lib';
-
-const response = await generateContentWithOptions('Write a poem', {
-	model: 'gemini-2.5-flash',
-	temperature: 0.7,
-	maxOutputTokens: 1000
-});
-```
-
-### Example Component
-
-See `src/routes/gemini-example.svelte` for a complete example of how to use the Gemini utilities in a Svelte component.
-
 ## Developing
 
 Start a development server:
