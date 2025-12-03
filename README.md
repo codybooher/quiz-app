@@ -1,7 +1,7 @@
 # Quiz App
 
 A fun quiz app that generates multiple-choice questions based on a user provided topic.
-See the deployed version here:
+See the deployed version [here](https://quiz-app.booher-cody.workers.dev/)
 
 ## Summary
 
