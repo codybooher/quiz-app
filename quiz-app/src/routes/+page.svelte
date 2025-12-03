@@ -3,6 +3,7 @@
 	import QuizHistorySidebar from '$lib/components/QuizHistory.svelte';
 	import ScoreDisplay from '$lib/components/ScoreDisplay.svelte';
 	import type { Question, QuizHistory } from '$lib/types/quiz';
+	import { randomTopics } from '$lib/utils/topics';
 	import { onMount } from 'svelte';
 
 	let topic = $state('');
@@ -206,6 +207,15 @@
 	}
 
 	/**
+	 * Picks a random topic from the predefined list and generates a quiz
+	 */
+	function generateRandomTopicQuiz() {
+		const randomIndex = Math.floor(Math.random() * randomTopics.length);
+		topic = randomTopics[randomIndex];
+		generateQuiz();
+	}
+
+	/**
 	 * Toggles history sidebar visibility
 	 */
 	function toggleHistory() {
@@ -276,6 +286,14 @@
 						class="rounded-md bg-blue-500 px-6 py-3 font-semibold text-white hover:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-50"
 					>
 						{isLoading ? 'Generating Quiz...' : 'Generate Quiz (5 Questions)'}
+					</button>
+					<button
+						onclick={generateRandomTopicQuiz}
+						disabled={isLoading}
+						class="rounded-md bg-purple-500 px-6 py-3 font-semibold text-white hover:bg-purple-600 disabled:cursor-not-allowed disabled:opacity-50"
+						title="Pick a random topic and generate a quiz"
+					>
+						🎲 Random Topic
 					</button>
 				{/if}
 
